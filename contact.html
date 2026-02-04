@@ -1220,49 +1220,6 @@
             text-align: center;
         }
 
-        /* TikTok Follow Message */
-        .tiktok-follow {
-            margin: 2.5rem 0;
-            text-align: center;
-        }
-
-        .tiktok-follow p {
-            font-size: 1.3rem;
-            color: var(--light-gray);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .tiktok-follow a {
-            background: var(--accent-yellow);
-            color: var(--darkest-bg);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .tiktok-follow a:hover {
-            background: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        .tiktok-follow a i {
-            font-size: 1.8rem;
-            transition: transform 0.3s ease;
-        }
-
-        .tiktok-follow a:hover i {
-            transform: scale(1.15) rotate(5deg);
-        }
-
         @media (max-width: 640px) {
             .social-links a {
                 width: 45px;
@@ -1306,7 +1263,7 @@
                             <div class="contact-method-text">
                                 <h4>Email</h4>
                                 <p>
-                                    <a href="/cdn-cgi/l/email-protection#117b72626064706279727e707279787f7651767c70787d3f727e7c"><span class="__cf_email__" data-cfemail="305a53434145514358535f515358595e5770575d51595c1e535f5d">[email&#160;protected]</span></a>
+                                    <a href="mailto:jcsquashcoaching@gmail.com">jcsquashcoaching@gmail.com</a>
                                     <button onclick="navigator.clipboard.writeText('jcsquashcoaching@gmail.com').then(() => alert('Email copied to clipboard!'))" style="margin-left: 10px; padding: 5px 10px; background: var(--accent-yellow); color: var(--darkest-bg); border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: 600;">Copy</button>
                                 </p>
                             </div>
@@ -1327,6 +1284,15 @@
                         </div>
                     </div>
                     
+                    <!-- Social Media Links in Contact Section -->
+                    <div class="contact-social">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <form class="contact-form fade-in-on-scroll" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="300db4ba-220a-46e7-8bbb-9a75db76593d">
@@ -1355,11 +1321,10 @@
             <div class="footer-logo">John Cornforth <span>Coaching</span></div>
             <p class="footer-tagline">Elite Squash Training in Tauranga</p>
             
-            <!-- Follow on TikTok -->
-            <div class="tiktok-follow">
-                <p>Get Daily Squash Tips & Drills</p>
-                <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-tiktok"></i> Follow on TikTok
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
                 </a>
             </div>
             
@@ -1370,7 +1335,7 @@
 
 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile menu toggle
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.getElementById('navMenu');
