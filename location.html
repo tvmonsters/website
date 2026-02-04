@@ -1063,6 +1063,49 @@
             font-size: 0.9rem;
         }
 
+        /* TikTok Follow Message */
+        .tiktok-follow {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .tiktok-follow p {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tiktok-follow a {
+            background: var(--accent-yellow);
+            color: var(--darkest-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .tiktok-follow a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .tiktok-follow a i {
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tiktok-follow a:hover i {
+            transform: scale(1.15) rotate(5deg);
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             nav ul {
@@ -1218,49 +1261,6 @@
             margin-bottom: 1rem;
             color: var(--accent-yellow);
             text-align: center;
-        }
-
-        /* TikTok Follow Message */
-        .tiktok-follow {
-            margin: 2.5rem 0;
-            text-align: center;
-        }
-
-        .tiktok-follow p {
-            font-size: 1.3rem;
-            color: var(--light-gray);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .tiktok-follow a {
-            background: var(--accent-yellow);
-            color: var(--darkest-bg);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .tiktok-follow a:hover {
-            background: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        .tiktok-follow a i {
-            font-size: 1.8rem;
-            transition: transform 0.3s ease;
-        }
-
-        .tiktok-follow a:hover i {
-            transform: scale(1.15) rotate(5deg);
         }
 
         @media (max-width: 640px) {
