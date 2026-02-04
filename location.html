@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="High-performance squash coaching in Tauranga. Professional coaching for juniors, competitive teenagers, and adult club players at Devoy Squash & Fitness.">
+    <title>Our Location | John Cornforth Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+                :root {
+            --dark-bg: #2B2B2B;
+            --darker-bg: #1F1F1F;
+            --darkest-bg: #0D0D0D;
+            --white: #FFFFFF;
+            --light-gray: #E8EDF2;
+            --accent-yellow: #FFD700;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border-gray: #444444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+                body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--darker-bg);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 27, 53, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            border-bottom: 2px solid var(--accent-yellow);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.3px;
+        }
+
+        .logo span {
+            color: var(--accent-yellow);
+            font-weight: 900;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-yellow);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--dark-bg);
+            color: var(--accent-yellow);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Location Section */
+        #location {
+            background: var(--darker-bg);
+            padding-top: 8rem;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .location-info {
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .location-info h3 {
+            font-size: 1.8rem;
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .location-details {
+            background: #353535;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .location-icon {
+            font-size: 1.5rem;
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+        }
+
+        .location-text h4 {
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .location-text p {
+            color: var(--white);
+            opacity: 0.85;
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow);
+            height: 450px;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Facility Photos Gallery */
+        .facility-gallery {
+            background: var(--dark-bg);
+            padding: 4rem 2rem;
+        }
+
+        .facility-gallery .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .facility-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .facility-photo {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .facility-photo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .facility-photo img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-yellow);
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 2rem 0;
+        }
+
+        .footer-bottom {
+            font-size: 0.9rem;
+        }
+
+        /* TikTok Follow Message */
+        .tiktok-follow {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .tiktok-follow p {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tiktok-follow a {
+            background: var(--accent-yellow);
+            color: var(--darkest-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .tiktok-follow a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .tiktok-follow a i {
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tiktok-follow a:hover i {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(15, 27, 53, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 1.5rem;
+                transition: left 0.4s ease;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .facility-photos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            #location {
+                padding-top: 6rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in-on-scroll {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-on-scroll.hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+</head>
+<body>
+<nav>
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;"><div class="logo">John Cornforth <span>Coaching</span></div></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="accolades.html">Accolades</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<section id="location">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Where to Find Us</div>
+                <h2>Our Location</h2>
+                <p class="section-description">Train at one of Tauranga's premier squash facilities.</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info fade-in-on-scroll">
+                    <h3>Devoy Squash & Fitness</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <div class="location-icon">📍</div>
+                            <div class="location-text">
+                                <h4>Address</h4>
+                                <p>Devoy Squash & Fitness Centre<br>406 Devonport Road, Tauranga South<br>Tauranga 3112</p>
+                            </div>
+                        </div>
+                        <div class="location-detail">
+                            <div class="location-icon">🏢</div>
+                            <div class="location-text">
+                                <h4>Facilities</h4>
+                                <p>Modern courts, professional lighting, viewing gallery, changing rooms, and fitness equipment.</p>
+                            </div>
+                        </div>
+                        <div class="location-detail">
+                            <div class="location-icon">🚗</div>
+                            <div class="location-text">
+                                <h4>Parking</h4>
+                                <p>Ample free parking available on-site for all players and visitors.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; line-height: 1.8;">Devoy Squash & Fitness is Tauranga's leading squash venue, offering world-class facilities in a welcoming environment. Whether you're a beginner or competitive player, you'll find everything you need to excel.</p>
+                </div>
+                <div class="map-container fade-in-on-scroll">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.0899415962857!2d176.16372297631843!3d-37.69859797201134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6ddb9e5d5d5d5d%3A0x5d5d5d5d5d5d5d5d!2s406%20Devonport%20Road%2C%20Tauranga%20South%2C%20Tauranga%203112%2C%20New%20Zealand!5e0!3m2!1sen!2snz!4v1738396800000!5m2!1sen!2snz" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Devoy Squash & Fitness Location">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Photos Gallery -->
+    <section class="facility-gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Our Facility</div>
+                <h2>World-Class Squash Courts</h2>
+                <p class="section-description">Experience training at Tauranga's premier squash venue with professional-grade facilities.</p>
+            </div>
+            <div class="facility-photos">
+                <div class="facility-photo fade-in-on-scroll">
+                    <img src="1770105612060_image.png" alt="Group training session at Devoy Squash">
+                </div>
+                <div class="facility-photo fade-in-on-scroll">
+                    <img src="1770105642865_image.png" alt="Professional squash court at Devoy Squash">
+                </div>
+                <div class="facility-photo fade-in-on-scroll">
+                    <img src="1770105654665_image.png" alt="Players training on court at Devoy Squash">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer>
+        <div class="footer-content">
+            <div class="footer-logo">John Cornforth <span>Coaching</span></div>
+            <p class="footer-tagline">Elite Squash Training in Tauranga</p>
+            
+            <!-- Follow on TikTok -->
+            <div class="tiktok-follow">
+                <p>Get Daily Squash Tips & Drills</p>
+                <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok"></i> Follow on TikTok
+                </a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            <p class="footer-bottom">&copy; 2026 John Cornforth Coaching. All Rights Reserved. | Tauranga, New Zealand<br><span style="opacity: 0.6; font-size: 0.85rem;">Website Design by Flynn Dalton</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
