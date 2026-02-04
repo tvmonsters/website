@@ -1063,6 +1063,49 @@
             font-size: 0.9rem;
         }
 
+        /* TikTok Follow Message */
+        .tiktok-follow {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .tiktok-follow p {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tiktok-follow a {
+            background: var(--accent-yellow);
+            color: var(--darkest-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .tiktok-follow a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .tiktok-follow a i {
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tiktok-follow a:hover i {
+            transform: scale(1.15) rotate(5deg);
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             nav ul {
@@ -1284,15 +1327,6 @@
                         </div>
                     </div>
                     
-                    <!-- Social Media Links in Contact Section -->
-                    <div class="contact-social">
-                        <h3>Connect With Us</h3>
-                        <div class="social-links">
-                            <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <form class="contact-form fade-in-on-scroll" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="300db4ba-220a-46e7-8bbb-9a75db76593d">
@@ -1321,10 +1355,11 @@
             <div class="footer-logo">John Cornforth <span>Coaching</span></div>
             <p class="footer-tagline">Elite Squash Training in Tauranga</p>
             
-            <!-- Social Media Links -->
-            <div class="social-links">
-                <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok">
-                    <i class="fab fa-tiktok"></i>
+            <!-- Follow on TikTok -->
+            <div class="tiktok-follow">
+                <p>Get Daily Squash Tips & Drills</p>
+                <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok"></i> Follow on TikTok
                 </a>
             </div>
             
