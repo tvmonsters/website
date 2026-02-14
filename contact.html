@@ -192,8 +192,15 @@
         }
 
         .email-copy-row a {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
             word-break: break-all;
+        }
+
+        .email-copy-row a:hover {
+            color: var(--accent-yellow);
         }
 
         .contact-method-text p a {
@@ -242,6 +249,12 @@
             display: block;
             background: #ffffff;
             color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .calendar-embed iframe {
+                filter: invert(1) hue-rotate(180deg);
+            }
         }
 
         /* Extra info form section */
@@ -466,7 +479,7 @@
                 <div class="contact-method-text">
                     <h4>Email</h4>
                     <div class="email-copy-row">
-                        <a href="mailto:jcsquashcoaching@gmail.com">jcsquashcoaching@gmail.com</a>
+                        <a href="/cdn-cgi/l/email-protection#b4ded7c7c5c1d5c7dcd7dbd5d7dcdddad3f4d3d9d5ddd89ad7dbd9"><span class="__cf_email__" data-cfemail="751f1606040014061d161a14161d1c1b12351218141c195b161a18">[email&#160;protected]</span></a>
                         <button onclick="navigator.clipboard.writeText('jcsquashcoaching@gmail.com').then(() => alert('Email copied!'))" style="padding: 4px 12px; background: var(--accent-yellow); color: var(--darkest-bg); border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: 700; width: fit-content;">Copy</button>
                     </div>
                 </div>
@@ -554,7 +567,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -598,15 +611,4 @@
                 submitButton.style.background = '#4CAF50';
                 form.reset();
             } else {
-                submitButton.textContent = 'Error — Try Again';
-                submitButton.disabled = false;
-            }
-        } catch (error) {
-            submitButton.textContent = 'Error — Try Again';
-            submitButton.disabled = false;
-        }
-    });
-</script>
-
-</body>
-</html>
+                submitButton.textContent = 'Er
