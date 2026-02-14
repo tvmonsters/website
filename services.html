@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-                :root {
+        :root {
             --dark-bg: #2B2B2B;
             --darker-bg: #1F1F1F;
             --darkest-bg: #0D0D0D;
@@ -22,17 +22,10 @@
             --border-gray: #444444;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-                body {
+        body {
             font-family: 'Montserrat', sans-serif;
             background: var(--darker-bg);
             color: var(--white);
@@ -40,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -54,14 +46,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         nav .container {
@@ -72,23 +58,10 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.3px;
-        }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: 0.3px; }
+        .logo span { color: var(--accent-yellow); font-weight: 900; }
 
-        .logo span {
-            color: var(--accent-yellow);
-            font-weight: 900;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
 
         nav a {
             color: var(--white);
@@ -103,17 +76,13 @@
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
             background: var(--accent-yellow);
             transition: width 0.3s ease;
         }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+        nav a:hover::after { width: 100%; }
 
         .mobile-menu-toggle {
             display: none;
@@ -124,7 +93,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 60vh;
             background: linear-gradient(135deg, var(--darkest-bg) 0%, var(--darker-bg) 50%, var(--dark-bg) 100%);
@@ -137,11 +105,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
                 linear-gradient(45deg, transparent 45%, rgba(255, 215, 0, 0.03) 50%, transparent 55%),
                 radial-gradient(circle at 20% 80%, rgba(244, 208, 63, 0.05) 0%, transparent 50%);
             background-size: 60px 60px, 100% 100%;
@@ -161,20 +126,11 @@
             z-index: 1;
         }
 
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
-        }
+        .hero-content { max-width: 800px; animation: fadeInUp 1s ease-out; }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-label {
@@ -218,15 +174,9 @@
             animation: fadeInUp 1s ease-out 0.6s backwards;
         }
 
-        /* Services Section */
-        section {
-            padding: 5rem 2rem;
-        }
+        section { padding: 5rem 2rem; }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1400px; margin: 0 auto; }
 
         h2 {
             font-size: clamp(2rem, 5vw, 3rem);
@@ -257,12 +207,13 @@
 
         .service-card {
             background: #353535;
-            background: #353535;
             padding: 2.5rem;
             border-radius: 16px;
             box-shadow: 0 10px 30px var(--shadow);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -281,7 +232,6 @@
             justify-content: center;
             font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: var(--white);
         }
 
         .service-card h3 {
@@ -295,11 +245,13 @@
             color: var(--white);
             line-height: 1.8;
             margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
 
         .service-features {
             list-style: none;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .service-features li {
@@ -326,8 +278,19 @@
 
         .service-price-note {
             font-size: 0.9rem;
-            color: rgba(0, 0, 0, 0.5);
-            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.4rem;
+        }
+
+        .price-discount {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--darkest-bg);
+            background: var(--accent-yellow);
+            padding: 0.25rem 0.8rem;
+            border-radius: 50px;
+            margin-top: 0.6rem;
         }
 
         .btn {
@@ -353,17 +316,6 @@
             box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--dark-bg);
-            color: var(--white);
-        }
-
         .cta-section {
             background: linear-gradient(135deg, var(--darkest-bg) 0%, var(--darker-bg) 100%);
             padding: 5rem 2rem;
@@ -372,18 +324,9 @@
             margin-top: 4rem;
         }
 
-        .cta-section h2 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
+        .cta-section h2 { color: var(--white); margin-bottom: 1.5rem; }
+        .cta-section p { color: rgba(255, 255, 255, 0.85); font-size: 1.2rem; margin-bottom: 2rem; }
 
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Footer */
         footer {
             background: var(--dark-bg);
             color: rgba(255, 255, 255, 0.7);
@@ -391,10 +334,7 @@
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
 
         .footer-logo {
             font-size: 2rem;
@@ -404,31 +344,12 @@
             letter-spacing: -0.5px;
         }
 
-        .footer-logo span {
-            color: var(--accent-yellow);
-        }
+        .footer-logo span { color: var(--accent-yellow); }
+        .footer-tagline { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; }
+        .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.05); margin: 2rem 0; }
+        .footer-bottom { font-size: 0.9rem; }
 
-        .footer-tagline {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        .footer-divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.05);
-            margin: 2rem 0;
-        }
-
-        .footer-bottom {
-            font-size: 0.9rem;
-        }
-
-        /* TikTok Follow Message */
-        .tiktok-follow {
-            margin: 2.5rem 0;
-            text-align: center;
-        }
+        .tiktok-follow { margin: 2.5rem 0; text-align: center; }
 
         .tiktok-follow p {
             font-size: 1.3rem;
@@ -458,16 +379,9 @@
             box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
         }
 
-        .tiktok-follow a i {
-            font-size: 1.8rem;
-            transition: transform 0.3s ease;
-        }
+        .tiktok-follow a i { font-size: 1.8rem; transition: transform 0.3s ease; }
+        .tiktok-follow a:hover i { transform: scale(1.15) rotate(5deg); }
 
-        .tiktok-follow a:hover i {
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        /* Responsive */
         @media (max-width: 968px) {
             nav ul {
                 position: fixed;
@@ -482,59 +396,22 @@
                 gap: 1.5rem;
                 transition: left 0.4s ease;
             }
-
-            nav ul.active {
-                left: 0;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            nav ul.active { left: 0; }
+            .mobile-menu-toggle { display: block; }
+            .services-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 640px) {
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .hero .container {
-                padding: 6rem 1.5rem 3rem;
-            }
-
-            .service-card {
-            background: #353535;
-                padding: 2rem;
-            }
+            section { padding: 4rem 1.5rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero .container { padding: 6rem 1.5rem 3rem; }
+            .service-card { padding: 2rem; }
         }
 
-        /* Scroll animations */
-        .fade-in-on-scroll {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade-in-on-scroll.hidden {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .fade-in-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in-on-scroll { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
+        .fade-in-on-scroll.hidden { opacity: 0; transform: translateY(30px); }
+        .fade-in-on-scroll.visible { opacity: 1; transform: translateY(0); }
     </style>
 
 </head>
@@ -568,98 +445,85 @@
     <section>
         <div class="container">
             <h2>Coaching Programs</h2>
-            <p class="section-subtitle">Choose the program that fits your goals and skill level. All sessions are held at Devoy Squash & Fitness Centre in Tauranga.</p>
-            
+            <p class="section-subtitle">Choose the program that fits your goals and skill level. All sessions are held at Devoy Squash &amp; Fitness Centre in Tauranga.</p>
+
             <div class="services-grid fade-in-on-scroll">
+
                 <div class="service-card">
                     <div class="service-icon">🎯</div>
                     <h3>Junior Development</h3>
-                    <p>Build a strong foundation in squash fundamentals with age-appropriate coaching designed for young players.</p>
+                    <p>Build a strong foundation in squash with age-appropriate coaching designed to develop young players with the right habits, movement, and mindset from day one.</p>
                     <ul class="service-features">
-                        <li>Ages 7-14 years</li>
                         <li>Focus on technique and footwork</li>
                         <li>Fun, engaging training sessions</li>
-                        <li>Small group or individual sessions</li>
+                        <li>Individual attention and feedback</li>
+                        <li>Court movement and racket skills</li>
                         <li>Tournament preparation available</li>
                     </ul>
-                    <div class="service-price">$35<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
-                    <div class="service-price-note">30-minute sessions</div>
+                    <div class="service-price">$45<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
+                    <div class="price-discount">$40/session for Academy players</div>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🏆</div>
-                    <h3>Competitive Teen Program</h3>
-                    <p>Advanced training for teenagers competing at regional and national levels who are serious about their game.</p>
+                    <div class="service-icon">🏅</div>
+                    <h3>Junior Academy</h3>
+                    <p>A structured 10-week term program combining one-on-one coaching with regular group sessions — the ideal environment for juniors who are serious about improving and competing.</p>
                     <ul class="service-features">
-                        <li>Ages 14-18 years</li>
-                        <li>Competitive match strategies</li>
-                        <li>Advanced technique refinement</li>
-                        <li>Mental game development</li>
-                        <li>Tournament support and analysis</li>
+                        <li>10-week term program</li>
+                        <li>2 x one-on-one sessions per term</li>
+                        <li>16 x group sessions (2 per week for 8 weeks)</li>
+                        <li>Technique, tactics and match play</li>
+                        <li>Competitive and team-based drills</li>
                     </ul>
-                    <div class="service-price">$55<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
-                    <div class="service-price-note">45-minute sessions</div>
+                    <div class="service-price">$175<span style="font-size: 1.2rem; font-weight: 600;">/term</span></div>
+                    <div class="service-price-note">10-week program</div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">💪</div>
                     <h3>Adult Club Player</h3>
-                    <p>Improve your game with professional coaching focused on technique, strategy, and fitness for club-level players.</p>
+                    <p>Elevate your club game with targeted coaching focused on technique refinement, strategic thinking, and on-court decision making — suitable for all adult skill levels.</p>
                     <ul class="service-features">
                         <li>All adult skill levels welcome</li>
-                        <li>Technical improvements</li>
-                        <li>Strategic game planning</li>
-                        <li>Fitness and conditioning guidance</li>
+                        <li>Technical and tactical improvements</li>
+                        <li>Game pattern and strategy development</li>
+                        <li>Fitness and movement guidance</li>
                         <li>Flexible scheduling options</li>
                     </ul>
-                    <div class="service-price">$60<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
-                    <div class="service-price-note">60-minute sessions</div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3>Group Sessions</h3>
-                    <p>Train with friends or teammates in small group settings for a cost-effective coaching option.</p>
-                    <ul class="service-features">
-                        <li>2-4 players per group</li>
-                        <li>Shared costs, personalized attention</li>
-                        <li>Great for club teams</li>
-                        <li>Competitive drills and games</li>
-                        <li>Social and fun environment</li>
-                    </ul>
-                    <div class="service-price">$25<span style="font-size: 1.2rem; font-weight: 600;">/person</span></div>
+                    <div class="service-price">$50<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
                     <div class="service-price-note">60-minute sessions</div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">📹</div>
-                    <h3>Video Analysis</h3>
-                    <p>Comprehensive video analysis of your technique and match play to identify areas for improvement.</p>
+                    <h3>Game Lab Sessions</h3>
+                    <p>An in-depth video analysis service that gives you an honest look at your game from the outside. Identify technical weaknesses, tactical habits and movement patterns you might never notice mid-match.</p>
                     <ul class="service-features">
                         <li>Professional video recording</li>
                         <li>Detailed technical breakdown</li>
-                        <li>Side-by-side comparisons</li>
-                        <li>Personalized improvement plan</li>
-                        <li>Follow-up session included</li>
+                        <li>Movement and positioning analysis</li>
+                        <li>Personalised improvement plan</li>
+                        <li>Follow-up coaching session included</li>
                     </ul>
-                    <div class="service-price">$80<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
-                    <div class="service-price-note">90-minute comprehensive analysis</div>
+                    <div class="service-price" style="font-size: 1.3rem;">Contact for pricing</div>
+                    <div class="service-price-note">Comprehensive analysis session</div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">⚡</div>
-                    <h3>Tournament Preparation</h3>
-                    <p>Intensive pre-tournament training to ensure you're at your peak performance when it counts.</p>
+                    <h3>Squash Fit</h3>
+                    <p>A dedicated fitness program built specifically for squash players. Improve your speed, endurance, agility and court coverage in a structured group environment designed to make you harder to beat.</p>
                     <ul class="service-features">
-                        <li>Match simulation drills</li>
-                        <li>Mental preparation strategies</li>
-                        <li>Tactical game planning</li>
-                        <li>Opponent analysis (if applicable)</li>
-                        <li>Peak performance timing</li>
+                        <li>Squash-specific conditioning drills</li>
+                        <li>Speed, agility and footwork training</li>
+                        <li>Endurance and match fitness</li>
+                        <li>Wednesday evenings at 6pm</li>
+                        <li>Small group format</li>
                     </ul>
-                    <div class="service-price">$70<span style="font-size: 1.2rem; font-weight: 600;">/session</span></div>
-                    <div class="service-price-note">60-minute intensive sessions</div>
+                    <div class="service-price">$150<span style="font-size: 1.2rem; font-weight: 600;"> / 10 sessions</span></div>
+                    <div class="service-price-note">Wednesdays 6pm</div>
                 </div>
+
             </div>
 
             <div class="cta-section fade-in-on-scroll">
@@ -674,22 +538,20 @@
         <div class="footer-content">
             <div class="footer-logo">John Cornforth <span>Coaching</span></div>
             <p class="footer-tagline">Elite Squash Training in Tauranga</p>
-            
-            <!-- Follow on TikTok -->
+
             <div class="tiktok-follow">
-                <p>Get Daily Squash Tips & Drills</p>
+                <p>Get Daily Squash Tips &amp; Drills</p>
                 <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-tiktok"></i> Follow on TikTok
                 </a>
             </div>
-            
+
             <div class="footer-divider"></div>
             <p class="footer-bottom">&copy; 2026 John Cornforth Coaching. All Rights Reserved. | Tauranga, New Zealand<br><span style="opacity: 0.6; font-size: 0.85rem;">Website Design by Flynn Dalton</span></p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.getElementById('navMenu');
 
@@ -697,30 +559,19 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking a link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
-        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => observer.observe(el));
     </script>
 
 </body>
