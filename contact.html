@@ -479,8 +479,8 @@
                 <div class="contact-method-text">
                     <h4>Email</h4>
                     <div class="email-copy-row">
-                        <a href="/cdn-cgi/l/email-protection#b4ded7c7c5c1d5c7dcd7dbd5d7dcdddad3f4d3d9d5ddd89ad7dbd9"><span class="__cf_email__" data-cfemail="751f1606040014061d161a14161d1c1b12351218141c195b161a18">[email&#160;protected]</span></a>
-                        <button onclick="navigator.clipboard.writeText('jcsquashcoaching@gmail.com').then(() => alert('Email copied!'))" style="padding: 4px 12px; background: var(--accent-yellow); color: var(--darkest-bg); border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: 700; width: fit-content;">Copy</button>
+                        <a href="#" id="emailLink" onclick="openEmail(); return false;">jcsquashcoaching&#64;gmail&#46;com</a>
+                        <button onclick="copyEmail()" style="padding: 4px 12px; background: var(--accent-yellow); color: var(--darkest-bg); border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: 700; width: fit-content;">Copy</button>
                     </div>
                 </div>
             </div>
@@ -567,7 +567,18 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+    function openEmail() {
+        var u = 'jcsquashcoaching';
+        var d = 'gmail.com';
+        window.location.href = 'mailto:' + u + '@' + d;
+    }
+    function copyEmail() {
+        var u = 'jcsquashcoaching';
+        var d = 'gmail.com';
+        navigator.clipboard.writeText(u + '@' + d).then(() => alert('Email copied!'));
+    }
+</script><script>
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.getElementById('navMenu');
 
