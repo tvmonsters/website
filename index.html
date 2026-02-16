@@ -1735,35 +1735,105 @@
                 <i class="fas fa-paper-plane"></i>
             </button>
         </div>
-        <div class="mason-footer">Powered by Claude AI · John Cornforth Coaching</div>
+        <div class="mason-footer">Mason · John Cornforth Coaching Assistant</div>
     </div>
 
     <script>
     (function() {
-        const SYSTEM_PROMPT = `You are Mason, a friendly and knowledgeable AI assistant for John Cornforth Coaching — an elite squash coaching service based in Tauranga, New Zealand, operating out of Devoy Squash & Fitness.
 
-Your personality: Enthusiastic about squash, warm, professional, and encouraging. You speak like a supportive coach — motivating but direct.
+        // ── Rule-based response engine (no API, 100% free) ──────────────────
+        const responses = [
+            {
+                keywords: ['price', 'pricing', 'cost', 'how much', 'fee', 'charge', 'rates', 'expensive', 'afford', 'dollar', 'pay'],
+                reply: `Great question! All program pricing is listed on the Services page — check it out for full details. If you'd like something specific or have questions after that, just send John a message through the contact form and he'll get back to you.`,
+                quickReplies: ['View Services', 'Contact John', 'How do I book?']
+            },
+            {
+                keywords: ['book', 'booking', 'schedule', 'appointment', 'session', 'reserve', 'sign up', 'enrol', 'enroll', 'when', 'available', 'availability', 'calendar', 'google'],
+                reply: `Booking is easy! Just hit the "Book Now" button on the site — it links straight to John's Google Calendar so you can pick a time that works for you. If you can't find a suitable slot, drop John a message via the contact form.`,
+                quickReplies: ['What programs are available?', 'Pricing info', 'Where are you located?']
+            },
+            {
+                keywords: ['tip', 'tips', 'technique', 'drill', 'drills', 'improve', 'better', 'skills', 'skill', 'advice', 'learn', 'tiktok', 'video', 'videos', 'watch', 'content', 'how to', 'beginner', 'help my game'],
+                reply: `John posts daily squash tips, drills and technique videos on his TikTok — it's a goldmine for players of all levels! Head over to @johncornforthcoaching to check it out: https://www.tiktok.com/@johncornforthcoaching`,
+                quickReplies: ['How do I book a session?', 'What programs are available?', 'Pricing info']
+            },
+            {
+                keywords: ['program', 'programs', 'programme', 'programmes', 'offer', 'offering', 'service', 'services', 'coaching', 'train', 'training', 'what do you', 'what does'],
+                reply: `John offers junior coaching, competitive teenager programs, adult club player sessions, and one-on-one coaching — all tailored to your level and goals. Full details are on the Services page, and you can reach out via the contact form if you'd like to chat first.`,
+                quickReplies: ['View Services', 'How do I book?', 'Pricing info']
+            },
+            {
+                keywords: ['junior', 'juniors', 'kid', 'kids', 'child', 'children', 'young', 'youth', 'teen', 'teenager', 'under 18', 'boy', 'girl'],
+                reply: `John runs dedicated junior and competitive teenager programs designed to build solid fundamentals and competitive match skills from a young age. Check the Services page for full details, or get in touch via the contact form to discuss the right fit for your child.`,
+                quickReplies: ['View Services', 'How do I book?', 'Pricing info']
+            },
+            {
+                keywords: ['adult', 'adults', 'club', 'club player', 'recreational', 'social', 'beginner', 'intermediate', 'advanced'],
+                reply: `There are sessions for adult club players of all levels — whether you're just starting out or a seasoned club competitor. Head to the Services page to see what's available, or use the contact form to ask John directly.`,
+                quickReplies: ['View Services', 'How do I book?', 'Squash tips']
+            },
+            {
+                keywords: ['location', 'located', 'where', 'address', 'place', 'venue', 'devoy', 'tauranga', 'find', 'directions', 'court'],
+                reply: `Coaching is based at Devoy Squash & Fitness in Tauranga, New Zealand. You can find directions and location info on the Location page of this site.`,
+                quickReplies: ['How do I book?', 'What programs are available?', 'Contact John']
+            },
+            {
+                keywords: ['contact', 'reach', 'email', 'message', 'touch', 'talk', 'speak', 'call', 'enquire', 'enquiry', 'inquiry', 'question'],
+                reply: `You can reach John directly through the contact form on this site. He aims to reply as soon as possible — usually within 24 hours.`,
+                quickReplies: ['How do I book?', 'Pricing info', 'What programs are available?']
+            },
+            {
+                keywords: ['john', 'cornforth', 'coach', 'who', 'about', 'background', 'experience', 'qualified', 'credentials', 'accolades', 'achievement'],
+                reply: `John Cornforth is an elite squash coach based in Tauranga with years of experience developing players at all levels. Check out the About and Accolades pages for his full background and credentials.`,
+                quickReplies: ['What programs are available?', 'How do I book?', 'Pricing info']
+            },
+            {
+                keywords: ['squash', 'rules', 'scoring', 'point', 'points', 'rally', 'serve', 'lets', 'stroke', 'game', 'match', 'tournament'],
+                reply: `Great to see you're keen on the game! For squash tips and technique, John's TikTok is the best place to start: https://www.tiktok.com/@johncornforthcoaching. For coaching to really level up your game, check out the programs on the Services page.`,
+                quickReplies: ['Squash tips on TikTok', 'What programs are available?', 'How do I book?']
+            },
+            {
+                keywords: ['hi', 'hey', 'hello', 'hiya', 'sup', 'good morning', 'good afternoon', 'howdy', 'yo'],
+                reply: `Hey! Great to hear from you. I'm Mason, the assistant for John Cornforth Coaching. Whether you want to know about programs, pricing, booking, or squash tips — I've got you covered. What can I help with?`,
+                quickReplies: ['What programs are available?', 'Pricing info', 'How do I book?', 'Squash tips']
+            },
+            {
+                keywords: ['thanks', 'thank you', 'cheers', 'awesome', 'great', 'perfect', 'helpful', 'legend'],
+                reply: `No worries at all! If you think of anything else, feel free to ask. Good luck on the court! 🏆`,
+                quickReplies: ['How do I book?', 'Squash tips', 'Contact John']
+            }
+        ];
 
-Key facts about John Cornforth Coaching:
-- Coach: John Cornforth — elite-level squash coach based in Tauranga
-- Location: Devoy Squash & Fitness, Tauranga, New Zealand
-- Coaching programs available: Junior coaching, competitive teenager programs, adult club player sessions, one-on-one coaching
-- John has significant coaching accolades and experience developing players at all levels
-- Focus: High-performance training, technique, match strategy, fitness, and mental game
-- BOOKING: Sessions are booked through John's Google Calendar booking system. Always direct users to the "Book Now" button on the website or the contact page, which links to the Google Calendar booking tool where they can pick a time that suits them directly.
-- SERVICES AND PRICING: Full details on all coaching programs and pricing are listed on the Services page at services.html. Always send people there first for pricing info. If they need more information after checking the services page, direct them to the contact form at contact.html to reach John directly.
-- SQUASH TIPS: John posts daily squash tips, drills and technique videos on his TikTok at https://www.tiktok.com/@johncornforthcoaching — always recommend this when someone asks for squash tips, drills, or technique advice.
+        const fallback = {
+            reply: `I'm not sure about that one, but John will be able to help! Send him a message through the contact form and he'll get back to you. You can also check the Services page for program info or John's TikTok for squash tips.`,
+            quickReplies: ['Contact John', 'View Services', 'Squash tips on TikTok', 'How do I book?']
+        };
 
-Guidelines:
-- Keep answers concise and conversational (2–4 sentences unless more detail is needed)
-- NEVER use markdown formatting — no **bold**, no *italics*, no bullet points with dashes, no headers. Plain conversational text only.
-- For booking: always mention the Google Calendar — click the "Book Now" button or visit the contact page
-- For pricing and services: always direct to the Services page (services.html) first, then the contact form (contact.html) if they need more info
-- For squash tips, drills, or technique: always point them to John's TikTok at https://www.tiktok.com/@johncornforthcoaching
-- If asked something you don't know, say so honestly and suggest they contact John via the form
-- Never make up specific prices, dates, or personal details about John
-- Always be positive and enthusiastic about squash and training`;
+        // Quick reply label → question text mapping
+        const qrMap = {
+            'View Services': 'What programs are available?',
+            'Contact John': 'How do I contact John?',
+            'Squash tips on TikTok': 'Where can I find squash tips?',
+            'How do I book?': 'How do I book a session?',
+            'Pricing info': 'How much does coaching cost?',
+            'What programs are available?': 'What programs are available?',
+            'Where are you located?': 'Where are you located?',
+            'Junior coaching info': 'Tell me about junior coaching',
+            'Squash tips': 'Can you give me some squash tips?'
+        };
 
+        function getBotReply(input) {
+            const lower = input.toLowerCase();
+            for (const rule of responses) {
+                if (rule.keywords.some(k => lower.includes(k))) {
+                    return rule;
+                }
+            }
+            return fallback;
+        }
+
+        // ── UI helpers ───────────────────────────────────────────────────────
         const quickReplies = [
             "What programs are available?",
             "Squash tips for beginners",
@@ -1781,11 +1851,9 @@ Guidelines:
         const notifDot = document.getElementById('mason-notif-dot');
 
         let isOpen = false;
-        let isLoading = false;
-        let conversationHistory = [];
+        let isTyping = false;
         let hasOpened = false;
 
-        // Toggle chat window
         launcher.addEventListener('click', () => {
             isOpen = !isOpen;
             launcher.classList.toggle('open', isOpen);
@@ -1794,8 +1862,8 @@ Guidelines:
             if (isOpen && !hasOpened) {
                 hasOpened = true;
                 notifDot.style.display = 'none';
-                setTimeout(() => addBotMessage("Hey! I'm Mason 🤖 — the AI assistant for John Cornforth Coaching. Ask me about squash programs, training tips, or how to book a session. What can I help you with?"), 400);
-                setTimeout(() => showQuickReplies(quickReplies), 1400);
+                setTimeout(() => addBotMessage("Hey! I'm Mason 🤖 — the assistant for John Cornforth Coaching. Ask me about programs, pricing, booking, or squash tips. What can I help with?"), 400);
+                setTimeout(() => showQuickReplies(quickReplies), 1200);
             }
             if (isOpen) inputEl.focus();
         });
@@ -1813,7 +1881,6 @@ Guidelines:
 
             const bubble = document.createElement('div');
             bubble.className = 'mason-bubble';
-            // Strip markdown: **bold**, *italic*, __bold__, _italic_
             const clean = text
                 .replace(/\*\*(.+?)\*\*/g, '$1')
                 .replace(/\*(.+?)\*/g, '$1')
@@ -1827,7 +1894,6 @@ Guidelines:
         }
 
         function addBotMessage(text) {
-            // Remove typing indicator if present
             const existingTyping = messagesEl.querySelector('.mason-typing-wrapper');
             if (existingTyping) existingTyping.remove();
             return addMessage('bot', text);
@@ -1838,102 +1904,70 @@ Guidelines:
             return addMessage('user', text);
         }
 
-        function showTyping() {
+        function showTypingThenReply(result) {
+            if (isTyping) return;
+            isTyping = true;
+
             const wrapper = document.createElement('div');
             wrapper.className = 'mason-msg bot mason-typing-wrapper';
-
             const avatarDiv = document.createElement('div');
-                avatarDiv.className = 'mason-msg-avatar';
-                avatarDiv.innerHTML = '<i class="fas fa-robot" style="font-size:0.7rem; color:#111;"></i>';
+            avatarDiv.className = 'mason-msg-avatar';
+            avatarDiv.innerHTML = '<i class="fas fa-robot" style="font-size:0.7rem; color:#111;"></i>';
             wrapper.appendChild(avatarDiv);
-
             const typingDiv = document.createElement('div');
             typingDiv.className = 'mason-typing';
             typingDiv.innerHTML = '<span></span><span></span><span></span>';
             wrapper.appendChild(typingDiv);
-
             messagesEl.appendChild(wrapper);
             scrollToBottom();
+
+            // Slight delay so it feels natural
+            const delay = 600 + Math.random() * 400;
+            setTimeout(() => {
+                wrapper.remove();
+                addBotMessage(result.reply);
+                if (result.quickReplies) showQuickReplies(result.quickReplies);
+                isTyping = false;
+                sendBtn.disabled = false;
+                inputEl.focus();
+            }, delay);
         }
 
         function showQuickReplies(replies) {
             qrContainer.innerHTML = '';
-            replies.forEach(reply => {
+            replies.forEach(label => {
                 const btn = document.createElement('button');
                 btn.className = 'mason-qr';
-                btn.textContent = reply;
-                btn.addEventListener('click', () => sendMessage(reply));
+                btn.textContent = label;
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const question = qrMap[label] || label;
+                    sendMessage(question, label);
+                });
                 qrContainer.appendChild(btn);
             });
         }
 
-        function clearQuickReplies() {
-            qrContainer.innerHTML = '';
-        }
+        function clearQuickReplies() { qrContainer.innerHTML = ''; }
+        function scrollToBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
 
-        function scrollToBottom() {
-            messagesEl.scrollTop = messagesEl.scrollHeight;
-        }
-
-        async function sendMessage(text) {
-            if (!text.trim() || isLoading) return;
-            isLoading = true;
+        function sendMessage(text, displayText) {
+            if (!text.trim() || isTyping) return;
             sendBtn.disabled = true;
-
-            const userText = text.trim();
+            addUserMessage(displayText || text);
+            const result = getBotReply(text);
+            showTypingThenReply(result);
             inputEl.value = '';
             inputEl.style.height = 'auto';
-            addUserMessage(userText);
-
-            conversationHistory.push({ role: 'user', content: userText });
-
-            showTyping();
-
-            try {
-                const response = await fetch('https://api.anthropic.com/v1/messages', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        model: 'claude-sonnet-4-5-20250929',
-                        max_tokens: 1000,
-                        system: SYSTEM_PROMPT,
-                        messages: conversationHistory
-                    })
-                });
-
-                const data = await response.json();
-                const reply = data.content && data.content[0] ? data.content[0].text : "Sorry, I had trouble connecting. Please try again!";
-
-                conversationHistory.push({ role: 'assistant', content: reply });
-
-                // Remove typing indicator and add response
-                const typingWrapper = messagesEl.querySelector('.mason-typing-wrapper');
-                if (typingWrapper) typingWrapper.remove();
-                addMessage('bot', reply);
-
-                // Show contextual quick replies after first real message
-                if (conversationHistory.length <= 4) {
-                    showQuickReplies(["Tell me more", "How do I book?", "Pricing info", "Squash tips"]);
-                }
-
-            } catch (err) {
-                const typingWrapper = messagesEl.querySelector('.mason-typing-wrapper');
-                if (typingWrapper) typingWrapper.remove();
-                addMessage('bot', "Oops! I'm having a moment. Please try again or use the contact form to reach John directly.");
-            } finally {
-                isLoading = false;
-                sendBtn.disabled = false;
-                inputEl.focus();
-            }
         }
 
-        // Send on button click - stopPropagation prevents document click from closing the window
+        // Send on button click
         sendBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             sendMessage(inputEl.value);
         });
 
-        // Send on Enter (Shift+Enter for new line)
+        // Send on Enter
         inputEl.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -1941,7 +1975,7 @@ Guidelines:
             }
         });
 
-        // Stop propagation inside the window so clicking anything inside never closes it
+        // Stop propagation inside window
         win.addEventListener('click', (e) => e.stopPropagation());
 
         // Auto-resize textarea
@@ -1950,7 +1984,7 @@ Guidelines:
             inputEl.style.height = Math.min(inputEl.scrollHeight, 100) + 'px';
         });
 
-        // Close only when clicking truly outside both the window and launcher
+        // Close when clicking outside
         document.addEventListener('click', (e) => {
             if (isOpen && !win.contains(e.target) && !launcher.contains(e.target)) {
                 isOpen = false;
@@ -1958,6 +1992,7 @@ Guidelines:
                 win.classList.remove('visible');
             }
         });
+
     })();
     </script>
     <!-- ===== END MASON AI CHATBOT ===== -->
