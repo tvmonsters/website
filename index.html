@@ -1742,92 +1742,96 @@
     (function() {
 
         // ── Rule-based response engine (no API, 100% free) ──────────────────
-        const responses = [
-            {
-                keywords: ['price', 'pricing', 'cost', 'how much', 'fee', 'charge', 'rates', 'expensive', 'afford', 'dollar', 'pay'],
-                reply: `Great question! All program pricing is listed on the Services page — check it out for full details. If you'd like something specific or have questions after that, just send John a message through the contact form and he'll get back to you.`,
-                quickReplies: ['View Services', 'Contact John', 'How do I book?']
+        const rules = {
+            services: {
+                keywords: ['program', 'programmes', 'programs', 'offer', 'service', 'services', 'what do you', 'what does', 'coaching offer', 'available'],
+                reply: `John offers junior coaching, competitive teenager programs, adult club player sessions, and one-on-one coaching — all tailored to your level and goals. Full details and pricing are on the Services page. If you'd like to chat first, just use the contact form.`,
+                quickReplies: ['Pricing info', 'How do I book?', 'Junior coaching info', 'Contact John']
             },
-            {
-                keywords: ['book', 'booking', 'schedule', 'appointment', 'session', 'reserve', 'sign up', 'enrol', 'enroll', 'when', 'available', 'availability', 'calendar', 'google'],
-                reply: `Booking is easy! Just hit the "Book Now" button on the site — it links straight to John's Google Calendar so you can pick a time that works for you. If you can't find a suitable slot, drop John a message via the contact form.`,
+            pricing: {
+                keywords: ['price', 'pricing', 'cost', 'how much', 'fee', 'charge', 'rates', 'expensive', 'afford', 'dollar', 'pay'],
+                reply: `All program pricing is listed on the Services page — head there for the full breakdown. If you have specific questions after that, just send John a message through the contact form and he'll get back to you.`,
+                quickReplies: ['View Services page', 'Contact John', 'How do I book?']
+            },
+            booking: {
+                keywords: ['book', 'booking', 'schedule', 'appointment', 'session', 'reserve', 'sign up', 'enrol', 'enroll', 'calendar', 'google'],
+                reply: `Booking is easy! Hit the "Book Now" button on the site — it links straight to John's Google Calendar so you can pick a time that works for you. If you can't find a suitable slot, drop John a message via the contact form.`,
                 quickReplies: ['What programs are available?', 'Pricing info', 'Where are you located?']
             },
-            {
-                keywords: ['tip', 'tips', 'technique', 'drill', 'drills', 'improve', 'better', 'skills', 'skill', 'advice', 'learn', 'tiktok', 'video', 'videos', 'watch', 'content', 'how to', 'beginner', 'help my game'],
-                reply: `John posts daily squash tips, drills and technique videos on his TikTok — it's a goldmine for players of all levels! Head over to @johncornforthcoaching to check it out: https://www.tiktok.com/@johncornforthcoaching`,
+            tips: {
+                keywords: ['tip', 'tips', 'technique', 'drill', 'drills', 'improve', 'better', 'skill', 'skills', 'advice', 'learn', 'tiktok', 'video', 'videos', 'watch', 'how to', 'beginner'],
+                reply: `John posts daily squash tips, drills and technique videos on his TikTok — it's brilliant for players of all levels! Check out @johncornforthcoaching here: https://www.tiktok.com/@johncornforthcoaching`,
                 quickReplies: ['How do I book a session?', 'What programs are available?', 'Pricing info']
             },
-            {
-                keywords: ['program', 'programs', 'programme', 'programmes', 'offer', 'offering', 'service', 'services', 'coaching', 'train', 'training', 'what do you', 'what does'],
-                reply: `John offers junior coaching, competitive teenager programs, adult club player sessions, and one-on-one coaching — all tailored to your level and goals. Full details are on the Services page, and you can reach out via the contact form if you'd like to chat first.`,
-                quickReplies: ['View Services', 'How do I book?', 'Pricing info']
-            },
-            {
+            juniors: {
                 keywords: ['junior', 'juniors', 'kid', 'kids', 'child', 'children', 'young', 'youth', 'teen', 'teenager', 'under 18', 'boy', 'girl'],
-                reply: `John runs dedicated junior and competitive teenager programs designed to build solid fundamentals and competitive match skills from a young age. Check the Services page for full details, or get in touch via the contact form to discuss the right fit for your child.`,
-                quickReplies: ['View Services', 'How do I book?', 'Pricing info']
+                reply: `John runs dedicated junior and competitive teenager programs designed to build solid fundamentals and competitive match skills from a young age. Check the Services page for full details, or get in touch via the contact form.`,
+                quickReplies: ['View Services page', 'How do I book?', 'Pricing info']
             },
-            {
-                keywords: ['adult', 'adults', 'club', 'club player', 'recreational', 'social', 'beginner', 'intermediate', 'advanced'],
-                reply: `There are sessions for adult club players of all levels — whether you're just starting out or a seasoned club competitor. Head to the Services page to see what's available, or use the contact form to ask John directly.`,
-                quickReplies: ['View Services', 'How do I book?', 'Squash tips']
+            adults: {
+                keywords: ['adult', 'adults', 'club player', 'recreational', 'social', 'intermediate', 'advanced'],
+                reply: `There are sessions for adult club players of all levels — whether you're just starting out or a seasoned competitor. Head to the Services page to see what's on offer, or ask John directly via the contact form.`,
+                quickReplies: ['View Services page', 'How do I book?', 'Squash tips on TikTok']
             },
-            {
+            location: {
                 keywords: ['location', 'located', 'where', 'address', 'place', 'venue', 'devoy', 'tauranga', 'find', 'directions', 'court'],
-                reply: `Coaching is based at Devoy Squash & Fitness in Tauranga, New Zealand. You can find directions and location info on the Location page of this site.`,
+                reply: `Coaching is based at Devoy Squash & Fitness in Tauranga, New Zealand. You can find full directions and location details on the Location page of this site.`,
                 quickReplies: ['How do I book?', 'What programs are available?', 'Contact John']
             },
-            {
+            contact: {
                 keywords: ['contact', 'reach', 'email', 'message', 'touch', 'talk', 'speak', 'call', 'enquire', 'enquiry', 'inquiry', 'question'],
                 reply: `You can reach John directly through the contact form on this site. He aims to reply as soon as possible — usually within 24 hours.`,
                 quickReplies: ['How do I book?', 'Pricing info', 'What programs are available?']
             },
-            {
-                keywords: ['john', 'cornforth', 'coach', 'who', 'about', 'background', 'experience', 'qualified', 'credentials', 'accolades', 'achievement'],
-                reply: `John Cornforth is an elite squash coach based in Tauranga with years of experience developing players at all levels. Check out the About and Accolades pages for his full background and credentials.`,
+            about: {
+                keywords: ['john', 'cornforth', 'who', 'about', 'background', 'experience', 'qualified', 'credentials', 'accolades', 'achievement'],
+                reply: `John Cornforth is an elite squash coach based in Tauranga with years of experience developing players at all levels. Check out the About and Accolades pages on this site for his full story and credentials.`,
                 quickReplies: ['What programs are available?', 'How do I book?', 'Pricing info']
             },
-            {
-                keywords: ['squash', 'rules', 'scoring', 'point', 'points', 'rally', 'serve', 'lets', 'stroke', 'game', 'match', 'tournament'],
-                reply: `Great to see you're keen on the game! For squash tips and technique, John's TikTok is the best place to start: https://www.tiktok.com/@johncornforthcoaching. For coaching to really level up your game, check out the programs on the Services page.`,
+            squash: {
+                keywords: ['squash', 'rules', 'scoring', 'rally', 'serve', 'game', 'match', 'tournament', 'racket', 'racquet', 'court'],
+                reply: `Love the enthusiasm! For squash tips and technique, John's TikTok is the best place to start: https://www.tiktok.com/@johncornforthcoaching. And for proper coaching to level up your game, check out the programs on the Services page.`,
                 quickReplies: ['Squash tips on TikTok', 'What programs are available?', 'How do I book?']
             },
-            {
-                keywords: ['hi', 'hey', 'hello', 'hiya', 'sup', 'good morning', 'good afternoon', 'howdy', 'yo'],
-                reply: `Hey! Great to hear from you. I'm Mason, the assistant for John Cornforth Coaching. Whether you want to know about programs, pricing, booking, or squash tips — I've got you covered. What can I help with?`,
-                quickReplies: ['What programs are available?', 'Pricing info', 'How do I book?', 'Squash tips']
+            greet: {
+                keywords: ['hi', 'hey', 'hello', 'hiya', 'sup', 'morning', 'afternoon', 'howdy', 'yo'],
+                reply: `Hey! Great to hear from you. I'm Mason, the assistant for John Cornforth Coaching. I can help with programs, pricing, booking, or squash tips — what are you after?`,
+                quickReplies: ['What programs are available?', 'Pricing info', 'How do I book?', 'Squash tips on TikTok']
             },
-            {
-                keywords: ['thanks', 'thank you', 'cheers', 'awesome', 'great', 'perfect', 'helpful', 'legend'],
-                reply: `No worries at all! If you think of anything else, feel free to ask. Good luck on the court! 🏆`,
-                quickReplies: ['How do I book?', 'Squash tips', 'Contact John']
+            thanks: {
+                keywords: ['thanks', 'thank you', 'cheers', 'awesome', 'great', 'perfect', 'helpful', 'legend', 'sweet'],
+                reply: `No worries at all! Good luck on the court — feel free to ask anything else anytime. 🏆`,
+                quickReplies: ['How do I book?', 'Squash tips on TikTok', 'Contact John']
             }
-        ];
+        };
 
         const fallback = {
-            reply: `I'm not sure about that one, but John will be able to help! Send him a message through the contact form and he'll get back to you. You can also check the Services page for program info or John's TikTok for squash tips.`,
-            quickReplies: ['Contact John', 'View Services', 'Squash tips on TikTok', 'How do I book?']
+            reply: `I'm not sure about that one, but John will be able to help! Send him a message through the contact form and he'll get back to you. You can also check the Services page for program info, or John's TikTok for squash tips.`,
+            quickReplies: ['Contact John', 'View Services page', 'Squash tips on TikTok', 'How do I book?']
         };
 
-        // Quick reply label → question text mapping
-        const qrMap = {
-            'View Services': 'What programs are available?',
-            'Contact John': 'How do I contact John?',
-            'Squash tips on TikTok': 'Where can I find squash tips?',
-            'How do I book?': 'How do I book a session?',
-            'Pricing info': 'How much does coaching cost?',
-            'What programs are available?': 'What programs are available?',
-            'Where are you located?': 'Where are you located?',
-            'Junior coaching info': 'Tell me about junior coaching',
-            'Squash tips': 'Can you give me some squash tips?'
+        // Quick reply labels that map directly to a rule (bypasses keyword matching)
+        const qrDirectMap = {
+            'View Services page':       'services',
+            'What programs are available?': 'services',
+            'Pricing info':             'pricing',
+            'How do I book?':           'booking',
+            'How do I book a session?': 'booking',
+            'Squash tips on TikTok':    'tips',
+            'Squash tips for beginners':'tips',
+            'Junior coaching info':     'juniors',
+            'Where are you located?':   'location',
+            'Contact John':             'contact'
         };
 
-        function getBotReply(input) {
-            const lower = input.toLowerCase();
-            for (const rule of responses) {
-                if (rule.keywords.some(k => lower.includes(k))) {
-                    return rule;
+        function getBotReply(text, directKey) {
+            // If a quick reply provides a direct rule key, use it immediately
+            if (directKey && rules[directKey]) return rules[directKey];
+            // Otherwise keyword-match
+            const lower = text.toLowerCase();
+            for (const key of Object.keys(rules)) {
+                if (rules[key].keywords.some(k => lower.includes(k))) {
+                    return rules[key];
                 }
             }
             return fallback;
@@ -1836,8 +1840,8 @@
         // ── UI helpers ───────────────────────────────────────────────────────
         const quickReplies = [
             "What programs are available?",
-            "Squash tips for beginners",
-            "How do I book a session?",
+            "Squash tips on TikTok",
+            "How do I book?",
             "Where are you located?",
             "Junior coaching info"
         ];
@@ -1941,8 +1945,8 @@
                 btn.textContent = label;
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const question = qrMap[label] || label;
-                    sendMessage(question, label);
+                    const directKey = qrDirectMap[label] || null;
+                    sendMessage(label, label, directKey);
                 });
                 qrContainer.appendChild(btn);
             });
@@ -1951,11 +1955,11 @@
         function clearQuickReplies() { qrContainer.innerHTML = ''; }
         function scrollToBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
 
-        function sendMessage(text, displayText) {
+        function sendMessage(text, displayText, directKey) {
             if (!text.trim() || isTyping) return;
             sendBtn.disabled = true;
             addUserMessage(displayText || text);
-            const result = getBotReply(text);
+            const result = getBotReply(text, directKey);
             showTypingThenReply(result);
             inputEl.value = '';
             inputEl.style.height = 'auto';
