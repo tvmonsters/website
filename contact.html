@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPCEtLSBEYXJrIGJhY2tncm91bmQgY2lyY2xlIC0tPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjE2IiBmaWxsPSIjMUYxRjFGIi8+CiAgPCEtLSBTcXVhc2ggYmFsbCBoaW50IC0gc21hbGwgY2lyY2xlIHRvcCByaWdodCAtLT4KICA8Y2lyY2xlIGN4PSIyNCIgY3k9IjgiIHI9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRDcwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cGF0aCBkPSJNMjIgNiBRMjQgOCAyNiAxMCIgc3Ryb2tlPSIjRkZENzAwIiBzdHJva2Utd2lkdGg9IjAuOCIgZmlsbD0ibm9uZSIvPgogIDwhLS0gSkMgdGV4dCAtLT4KICA8dGV4dCB4PSIxNiIgeT0iMjEiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjaywgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSIxMyIgZmlsbD0iI0ZGRDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiPkpDPC90ZXh0Pgo8L3N2Zz4K">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="High-performance squash coaching in Tauranga. Professional coaching for juniors, competitive teenagers, and adult club players at Devoy Squash & Fitness.">
+    <title>Contact Us | John Cornforth Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #2B2B2B;
+            --darker-bg: #1F1F1F;
+            --darkest-bg: #0D0D0D;
+            --white: #FFFFFF;
+            --light-gray: #E8EDF2;
+            --accent-yellow: #FFD700;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border-gray: #444444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--darker-bg);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 27, 53, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            border-bottom: 2px solid var(--accent-yellow);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: 0.3px; }
+        .logo span { color: var(--accent-yellow); font-weight: 900; }
+
+        nav ul { display: flex; list-style: none; gap: 2.5rem; }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--accent-yellow);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after { width: 100%; }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Section */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--accent-yellow);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact page layout */
+        #contact { background: var(--darkest-bg); color: var(--white); }
+
+        /* Contact info strip */
+        .contact-info-strip {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 1.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .contact-method-icon { font-size: 1.8rem; }
+
+        .contact-method-text h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
+            opacity: 0.6;
+            font-weight: 600;
+        }
+
+        .contact-method-text p {
+            font-size: 1rem;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .email-copy-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .email-copy-row a {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .email-copy-row a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .contact-method-text p a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-method-text p a:hover { color: var(--accent-yellow); }
+
+        /* Booking section */
+        .booking-section {
+            margin-bottom: 5rem;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .booking-header h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .booking-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .calendar-embed {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            background: #ffffff;
+            color-scheme: light;
+        }
+
+        .calendar-embed iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            display: block;
+            background: #ffffff;
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .calendar-embed iframe {
+                filter: invert(1) hue-rotate(180deg);
+            }
+        }
+
+        /* Extra info form section */
+        .extra-info-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 4rem;
+        }
+
+        .extra-info-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .extra-info-header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .extra-info-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 150px; }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent-yellow);
+            color: var(--darkest-bg);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo span { color: var(--accent-yellow); }
+        .footer-tagline { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; }
+        .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.05); margin: 2rem 0; }
+        .footer-bottom { font-size: 0.9rem; }
+
+        .tiktok-follow { margin: 2.5rem 0; text-align: center; }
+
+        .tiktok-follow p {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .tiktok-follow a {
+            background: var(--accent-yellow);
+            color: var(--darkest-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .tiktok-follow a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .tiktok-follow a i { font-size: 1.8rem; transition: transform 0.3s ease; }
+        .tiktok-follow a:hover i { transform: scale(1.15) rotate(5deg); }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(15, 27, 53, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 1.5rem;
+                transition: left 0.4s ease;
+            }
+            nav ul.active { left: 0; }
+            .mobile-menu-toggle { display: block; }
+        }
+
+        @media (max-width: 640px) {
+            section { padding: 4rem 1.5rem; }
+            h2 { font-size: 2rem; }
+            .contact-info-strip { flex-direction: column; align-items: center; }
+            .contact-method { max-width: 100%; width: 100%; }
+            .calendar-embed iframe { height: 550px; }
+            .contact-form { padding: 1.5rem; }
+        }
+
+        .fade-in-on-scroll { opacity: 1; transform: translateY(0); transition: all 0.8s ease-out; }
+        .fade-in-on-scroll.hidden { opacity: 0; transform: translateY(30px); }
+        .fade-in-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" style="text-decoration: none;"><div class="logo">John Cornforth <span>Coaching</span></div></a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="accolades.html">Accolades</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="contact">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="section-header fade-in-on-scroll">
+            <div class="section-label">Get in Touch</div>
+            <h2>Book Your Session</h2>
+            <p class="section-description">Ready to elevate your game? Pick a time that works for you using the booking calendar below.</p>
+        </div>
+
+        <!-- Contact Info Strip -->
+        <div class="contact-info-strip fade-in-on-scroll">
+            <div class="contact-method">
+                <div class="contact-method-icon">📧</div>
+                <div class="contact-method-text">
+                    <h4>Email</h4>
+                    <div class="email-copy-row">
+                        <a href="#" id="emailLink" onclick="openEmail(); return false;">jcsquashcoaching&#64;gmail&#46;com</a>
+                        <button onclick="copyEmail()" style="padding: 4px 12px; background: var(--accent-yellow); color: var(--darkest-bg); border: none; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: 700; width: fit-content;">Copy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method-icon">📱</div>
+                <div class="contact-method-text">
+                    <h4>Phone</h4>
+                    <p><a href="tel:+64279228955">027 922 8955</a></p>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-method-icon">⏰</div>
+                <div class="contact-method-text">
+                    <h4>Hours</h4>
+                    <p>Mon–Fri: 10:00am – 7:45pm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Calendar Booking -->
+        <div class="booking-section fade-in-on-scroll">
+            <div class="booking-header">
+                <h3>📅 Book a Session</h3>
+                <p>Select a date and time that suits you — booking is instant and confirmed automatically.</p>
+            </div>
+            <div class="calendar-embed">
+                <div style="color-scheme: light; background: #fff;">
+                    <iframe 
+                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1O3_DDJQPsuNFv3eHKq784b6ir-J4zlH23Cg0OvOS6UiAzCzNz6l7Oh-CU6UUu3k8aLQ9OLe-q?gv=true&bgcolor=%23ffffff"
+                        frameborder="0"
+                        scrolling="yes"
+                        style="background:#ffffff; color-scheme: light; width:100%; height:700px; border:none; display:block;"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extra Info Form -->
+        <div class="extra-info-section fade-in-on-scroll">
+            <div class="extra-info-header">
+                <h3>💬 Got Something to Add?</h3>
+                <p>Already booked or not ready to commit yet? Use this form to send through any extra details, questions, or background about your squash goals.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="300db4ba-220a-46e7-8bbb-9a75db76593d">
+                <input type="hidden" name="subject" value="New Coaching Inquiry from Website">
+                <input type="hidden" name="from_name" value="John Cornforth Coaching Website">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="e.g. your current level, coaching goals, any questions about programs..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">John Cornforth <span>Coaching</span></div>
+        <p class="footer-tagline">Elite Squash Training in Tauranga</p>
+
+        <div class="tiktok-follow">
+            <p>Get Daily Squash Tips &amp; Drills</p>
+            <a href="https://www.tiktok.com/@johncornforthcoaching" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-tiktok"></i> Follow on TikTok
+            </a>
+        </div>
+
+        <div class="footer-divider"></div>
+        <p class="footer-bottom">&copy; 2026 John Cornforth Coaching. All Rights Reserved. | Tauranga, New Zealand<br>
+        <span style="opacity: 0.6; font-size: 0.85rem;">Website Design by Flynn Dalton</span></p>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+    function openEmail() {
+        var u = 'jcsquashcoaching';
+        var d = 'gmail.com';
+        window.location.href = 'mailto:' + u + '@' + d;
+    }
+    function copyEmail() {
+        var u = 'jcsquashcoaching';
+        var d = 'gmail.com';
+        navigator.clipboard.writeText(u + '@' + d).then(() => alert('Email copied!'));
+    }
+</script><script>
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+    document.querySelectorAll('.fade-in-on-scroll').forEach(el => observer.observe(el));
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const formData = new FormData(form);
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                submitButton.textContent = 'Message Sent!';
+                submitButton.style.background = '#4CAF50';
+                form.reset();
+            } else {
+                submitButton.textContent = 'Er
