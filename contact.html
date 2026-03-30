@@ -9,7 +9,7 @@
     <title>Contact Us | John Cornforth Coaching</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -623,4 +623,21 @@
                 submitButton.style.background = '#4CAF50';
                 form.reset();
             } else {
-                submitButton.textContent = 'Er
+                submitButton.textContent = 'Error - Try Again';
+                submitButton.style.background = '#e74c3c';
+            }
+        } catch (error) {
+            submitButton.textContent = 'Error - Try Again';
+            submitButton.style.background = '#e74c3c';
+        } finally {
+            setTimeout(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+                submitButton.style.background = '';
+            }, 3000);
+        }
+    });
+    </script>
+
+</body>
+</html>
